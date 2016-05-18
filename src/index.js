@@ -51,7 +51,7 @@ function toArray(arg) {
 * @param {object} schema - a enforce define
 * @returns {any} enforcedValue
 */
-const enforce = (value, schema = {}) => {
+export function enforce(value, schema = {}) {
   let actual = value;
   if (schema.default != null) {
     if (value == null) {
@@ -97,7 +97,7 @@ const enforce = (value, schema = {}) => {
     return valid[0];
   }
   return actual;
-};
+}
 
 /**
 * @module enforceObject
@@ -105,7 +105,7 @@ const enforce = (value, schema = {}) => {
 * @param {object} schemas - a enforce defines
 * @returns {any} enforcedValues
 */
-const enforceObject = (values, schemas = {}) => {
+export function enforceObject(values, schemas = {}) {
   const actualObject = {};
   Object.keys(schemas).forEach(key => {
     const actual = enforce(values[key], schemas[key]);
@@ -114,6 +114,4 @@ const enforceObject = (values, schemas = {}) => {
     }
   });
   return actualObject;
-};
-
-export default { enforce, enforceObject };
+}

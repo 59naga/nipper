@@ -4,8 +4,7 @@
     "stage-1"
   ],
   "plugins": [
-    "transform-object-assign",
-    "add-module-exports"
+    "transform-object-assign"
   ],
   "env": {
     "development": {
